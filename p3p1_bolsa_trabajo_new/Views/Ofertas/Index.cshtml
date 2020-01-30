@@ -1,0 +1,43 @@
+﻿
+@model dynamic
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+<div class="jumbotron text-center">
+    <h2>Ofertas de Empleo</h2>
+    <p>Decenas de ofertas de empleo esperando por ti!</p>
+</div>
+<br />
+
+@foreach (var categoria in Model.Categorias)
+{
+    var contador = 0;
+    <h3 class="alert alert-info">@categoria.titulo</h3>
+    <table class="table table-bordered table-hover table-responsive">
+        <tr>
+            <th>Ubicación</th>
+            <th>Posición</th>
+            <th>Empresa</th>
+            <th></th>
+        </tr>
+        @foreach (var oferta in Model.Ofertas)
+        {
+            if (oferta.id_categoria_ofertas == categoria.id_categoria_ofertas)
+            {
+                <tr>
+                    <td>@oferta.ubicacion</td>
+                    <td>@oferta.posicion</td>
+                    <td>@oferta.nombre_empresa</td>
+                    <td>@Html.ActionLink("Detalles", "Details", new { id = oferta.id_ofertas })</td>
+                </tr>
+            }
+            contador++;
+        }
+    </table>
+    <a class="alert alert-success" href="">Ver más...</a>
+    contador = 0;
+}

@@ -1,0 +1,42 @@
+﻿@model p3p1_bolsa_trabajo_new.Models.Oferta
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+<div class="alert alert-success">
+    <h2>@Html.DisplayFor(model => model.titulo)</h2>
+</div>
+
+
+<table class="table table-bordered table-hover table-responsive">
+    <tr>
+        <th>@Html.DisplayNameFor(model => model.posicion)</th>
+        <td>@Html.DisplayFor(model => model.posicion)</td>
+    </tr>
+    <tr>
+        <th>@Html.DisplayNameFor(model => model.ubicacion)</th>
+        <td>@Html.DisplayFor(model => model.ubicacion)</td>
+    </tr>
+    <tr>
+        <th>@Html.DisplayNameFor(model => model.categoriaOfertaEmpleo.titulo)</th>
+        <td>@Html.DisplayFor(model => model.categoriaOfertaEmpleo.titulo)</td>
+    </tr>
+    <tr>
+        <th>@Html.DisplayNameFor(model => model.nombre_empresa)</th>
+        <td>@Html.DisplayFor(model => model.nombre_empresa)</td>
+    </tr>
+    <tr>
+        <th>@Html.DisplayNameFor(model => model.descripcion)</th>
+        <td>@Html.DisplayFor(model => model.descripcion)</td>
+    </tr>
+    <tr>
+        <th>@Html.DisplayNameFor(model => model.fecha_posteo)</th>
+        <td>@Html.DisplayFor(model => model.fecha_posteo)</td>
+    </tr>
+</table>
+<br />
+@Html.ActionLink("Volver al inicio", "Index")
+<br />

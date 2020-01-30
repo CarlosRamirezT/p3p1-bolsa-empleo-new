@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="p3p1BolsaTrabajoModelCategoriaOferta.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="categoriaOfertaEmpleos">
+    <Key>
+      <PropertyRef Name="id_categoria_ofertas" />
+    </Key>
+    <Property Name="id_categoria_ofertas" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="titulo" Type="varchar" MaxLength="45" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Ofertas">
+    <Key>
+      <PropertyRef Name="id_ofertas" />
+    </Key>
+    <Property Name="id_ofertas" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="titulo" Type="varchar" MaxLength="45" Nullable="false" />
+    <Property Name="descripcion" Type="varchar" MaxLength="45" Nullable="false" />
+    <Property Name="fecha_posteo" Type="datetime" Nullable="false" />
+    <Property Name="activo" Type="bit" Nullable="false" />
+    <Property Name="id_categoria_ofertas" Type="int" Nullable="false" />
+    <Property Name="ubicacion" Type="varchar" MaxLength="45" Nullable="false" />
+    <Property Name="posicion" Type="varchar" MaxLength="45" Nullable="false" />
+    <Property Name="nombre_empresa" Type="varchar" MaxLength="45" Nullable="false" />
+  </EntityType>
+  <Association Name="fk_id_categoria_ofertas">
+    <End Role="categoriaOfertaEmpleos" Type="Self.categoriaOfertaEmpleos" Multiplicity="1" />
+    <End Role="Ofertas" Type="Self.Ofertas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="categoriaOfertaEmpleos">
+        <PropertyRef Name="id_categoria_ofertas" />
+      </Principal>
+      <Dependent Role="Ofertas">
+        <PropertyRef Name="id_categoria_ofertas" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="p3p1BolsaTrabajoModelCategoriaOfertaStoreContainer">
+    <EntitySet Name="categoriaOfertaEmpleos" EntityType="Self.categoriaOfertaEmpleos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Ofertas" EntityType="Self.Ofertas" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="fk_id_categoria_ofertas" Association="Self.fk_id_categoria_ofertas">
+      <End Role="categoriaOfertaEmpleos" EntitySet="categoriaOfertaEmpleos" />
+      <End Role="Ofertas" EntitySet="Ofertas" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

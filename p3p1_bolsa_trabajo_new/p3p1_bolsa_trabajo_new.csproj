@@ -96,40 +96,126 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Site.css" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Models\ModelOfertaCategoria.Context.tt">
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <EntityDeploy Include="Models\ModelUsuario.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ModelUsuario.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\ModelCategoriaOferta.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>ModelOfertaCategoria.Context.cs</LastGenOutput>
+      <DependentUpon>ModelCategoriaOferta.edmx</DependentUpon>
+      <LastGenOutput>ModelCategoriaOferta.Context.cs</LastGenOutput>
     </Content>
+    <Content Include="Models\ModelCategoriaOferta.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelCategoriaOferta.edmx</DependentUpon>
+      <LastGenOutput>ModelCategoriaOferta.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\ModelUsuario.edmx.diagram">
+      <DependentUpon>ModelUsuario.edmx</DependentUpon>
+    </Content>
+    <EntityDeploy Include="Models\ModelCategoriaOferta.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ModelCategoriaOferta.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\ModelCategoriaOferta.edmx.diagram">
+      <DependentUpon>ModelCategoriaOferta.edmx</DependentUpon>
+    </Content>
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Models\ModelUsuario.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelUsuario.edmx</DependentUpon>
+      <LastGenOutput>ModelUsuario.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\ModelUsuario.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelUsuario.edmx</DependentUpon>
+      <LastGenOutput>ModelUsuario.cs</LastGenOutput>
+    </Content>
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Web.config" />
+    <Content Include="Views\Shared\_Layout_Admin.cshtml" />
+    <Content Include="Views\Login\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\OfertasController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\ModelOfertaCategoria.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ModelOfertaCategoria.Context.tt</DependentUpon>
+    <Compile Include="Models\categoriaOfertaEmpleo.cs">
+      <DependentUpon>ModelCategoriaOferta.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\ModelOfertaCategoria.Designer.cs">
+    <Compile Include="Models\ModelCategoriaOferta.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ModelOfertaCategoria.edmx</DependentUpon>
+      <DependentUpon>ModelCategoriaOferta.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelCategoriaOferta.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelCategoriaOferta.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelCategoriaOferta.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelCategoriaOferta.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelUsuario.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelUsuario.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelUsuario.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelUsuario.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelUsuario.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelUsuario.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Oferta.cs">
+      <DependentUpon>ModelCategoriaOferta.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Usuario.cs">
+      <DependentUpon>ModelUsuario.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
-    <EntityDeploy Include="Models\ModelOfertaCategoria.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>ModelOfertaCategoria.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="Models\ModelOfertaCategoria.edmx.diagram">
-      <DependentUpon>ModelOfertaCategoria.edmx</DependentUpon>
-    </None>
     <None Include="packages.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Views\Ofertas\Create.cshtml" />
+    <Content Include="Views\Ofertas\Delete.cshtml" />
+    <Content Include="Views\Ofertas\Details.cshtml" />
+    <Content Include="Views\Ofertas\Edit.cshtml" />
+    <Content Include="Views\Ofertas\Index.cshtml" />
+    <Content Include="Views\Ofertas\IndexAdmin.cshtml" />
+    <Content Include="Views\Ofertas\DetailsAdmin.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -139,7 +225,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Controllers\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
