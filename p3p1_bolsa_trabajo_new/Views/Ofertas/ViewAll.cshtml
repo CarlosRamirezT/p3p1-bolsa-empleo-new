@@ -1,4 +1,6 @@
-﻿@model dynamic
+﻿@using PagedList;
+@using PagedList.Mvc;
+@model dynamic
 
 @{
     ViewBag.Title = "Ofertas Empleo";
@@ -7,13 +9,12 @@
 
 <br />
 <div class="jumbotron text-center">
-    <h2>Ofertas de Empleo</h2>
+    <h2>Ofertas de Empleo </h2>
     <div class="alert alert-success">@Html.ActionLink("Crear Nueva Oferta", "Create")</div>
 </div>
 <br />
 @foreach (var categoria in Model.Categorias)
 {
-    var contador = 0;
     <h3 class="alert alert-info">@categoria.titulo</h3>
     <table class="table table-bordered table-hover table-responsive">
         <tr>
@@ -23,12 +24,9 @@
             <th></th>
             <th></th>
             <th></th>
-
         </tr>
         @foreach (var oferta in Model.Ofertas)
         {
-            if (oferta.id_categoria_ofertas == categoria.id_categoria_ofertas && contador <= 5)
-            {
         <tr>
             <td>@oferta.ubicacion</td>
             <td>@oferta.posicion</td>
@@ -36,11 +34,8 @@
             <td>@Html.ActionLink("Detalles", "Details", new { id = oferta.id_ofertas })</td>
             <td>@Html.ActionLink("Editar", "Edit", new { id = oferta.id_ofertas })</td>
             <td>@Html.ActionLink("Eliminar", "Delete", new { id = oferta.id_ofertas })</td>
-        </tr>
-            }
-            contador++;
+        </tr>        
         }
     </table>
-    @Html.ActionLink("Ver todos", "ViewAll", new { category_id = categoria.id_categoria_ofertas })
-    contador = 0;
+    @Html.PagedListPager((IPagedList)Model.Ofertas, page => Url.Action("ViewAll", new { page }))
 }

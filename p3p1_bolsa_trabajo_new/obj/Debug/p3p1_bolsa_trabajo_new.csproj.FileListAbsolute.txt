@@ -71,3 +71,7 @@ C:\Users\ii\Documents\Academic Itla Proyect\Cuatrimestre 2020-C-1\Programacion I
 C:\Users\ii\Documents\Academic Itla Proyect\Cuatrimestre 2020-C-1\Programacion III\p3p1_bolsa_trabajo_new\p3p1_bolsa_trabajo_new\obj\Debug\p3p1_bolsa_trabajo_new.csproj.CopyComplete
 C:\Users\ii\Documents\Academic Itla Proyect\Cuatrimestre 2020-C-1\Programacion III\p3p1_bolsa_trabajo_new\p3p1_bolsa_trabajo_new\obj\Debug\p3p1_bolsa_trabajo_new.dll
 C:\Users\ii\Documents\Academic Itla Proyect\Cuatrimestre 2020-C-1\Programacion III\p3p1_bolsa_trabajo_new\p3p1_bolsa_trabajo_new\obj\Debug\p3p1_bolsa_trabajo_new.pdb
+C:\Users\ii\Documents\Academic Itla Proyect\Cuatrimestre 2020-C-1\Programacion III\p3p1_bolsa_trabajo_new\p3p1_bolsa_trabajo_new\bin\PagedList.dll
+C:\Users\ii\Documents\Academic Itla Proyect\Cuatrimestre 2020-C-1\Programacion III\p3p1_bolsa_trabajo_new\p3p1_bolsa_trabajo_new\bin\PagedList.Mvc.dll
+C:\Users\ii\Documents\Academic Itla Proyect\Cuatrimestre 2020-C-1\Programacion III\p3p1_bolsa_trabajo_new\p3p1_bolsa_trabajo_new\bin\PagedList.xml
+C:\Users\ii\Documents\Academic Itla Proyect\Cuatrimestre 2020-C-1\Programacion III\p3p1_bolsa_trabajo_new\p3p1_bolsa_trabajo_new\bin\PagedList.Mvc.xml

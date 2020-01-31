@@ -1,5 +1,4 @@
-﻿
-@model dynamic
+﻿@model dynamic
 
 @{
     ViewBag.Title = "Index";
@@ -38,6 +37,6 @@
             contador++;
         }
     </table>
-    <a class="alert alert-success" href="">Ver más...</a>
+    <div class="alert alert-success">@Html.ActionLink("Mas Ofertas", "VerMas", new { category_id = categoria.id_categoria_ofertas })</div>
     contador = 0;
 }
