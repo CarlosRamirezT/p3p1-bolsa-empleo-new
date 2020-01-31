@@ -223,6 +223,8 @@
     <Content Include="Views\Ofertas\IndexAdmin.cshtml" />
     <Content Include="Views\Ofertas\DetailsAdmin.cshtml" />
     <Content Include="Views\Ofertas\ViewAll.cshtml" />
+    <Content Include="Views\Login\Signup.cshtml" />
+    <Content Include="Views\Ofertas\ViewAllUser.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

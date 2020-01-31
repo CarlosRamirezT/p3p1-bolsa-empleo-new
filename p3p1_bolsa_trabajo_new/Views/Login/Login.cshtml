@@ -1,80 +1,60 @@
 ﻿@model p3p1_bolsa_trabajo_new.Models.Usuario
-@{
-    Layout = null;
-}
 
 <!DOCTYPE html>
 
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Login</title>
+    <title>Loginn</title>
     <style>
-        #login-div {
-            position: absolute;
-            left: 40%;
-            top: 40%;
-            border: 1px solid #ccc;
-            padding: 10px 10px;
-        }
-
         .field-validation-error {
             color: red;
         }
     </style>
 </head>
 <body>
-    <div id="login-div">
-        @using (Html.BeginForm("Login", "Login", FormMethod.Post))
-        {
-            <table>
-                <tr>
-                    <td></td>
-                    <td style="text-decoration:underline">LOGIN</td>
-                </tr>
-                <tr>
-                    <td>
-                        @Html.LabelFor(model => model.email)
-                    </td>
-                    <td>
-                        @Html.EditorFor(model => model.email)
-                    </td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td>@Html.ValidationMessageFor(model => model.email)</td>
-                </tr>
-                <tr>
-                    <td>@Html.LabelFor(model => model.password_usuario)</td>
-                    <td>@Html.EditorFor(model => model.password_usuario)</td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td>@Html.ValidationMessageFor(model => model.password_usuario)</td>
-                </tr>
-                <tr>
-                    <td colspan="2">
-                        <label class="field-validation-error">@ViewBag.ErrorMessage</label>
-                    </td>
-                    <td colspan="2">
-                        <label class="field-validation-error">@ViewBag.SuccessMessage</label>
-                    </td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td>
-                        <input type="submit" name="name" value="Logear" />
-                        @Html.ActionLink("Inicio", "Index", "CategoriaOferta")
-                    </td>
-                </tr>
+    @using (Html.BeginForm("Login", "Login", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
 
+        <div class="form-horizontal">
+            <hr />
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <div class="alert alert-success">
+                        <h3 style="text-decoration:underline">LOGIN</h3>
+                    </div>
+                    <table class="table table-bordered table-hover table-responsive">
+                        <tr>
+                            <td>
+                                @Html.LabelFor(model => model.email, htmlAttributes: new { @class = "control-label col-md-2" })
+                            </td>
+                            <td>
+                                @Html.EditorFor(model => model.email, new { htmlAttributes = new { @class = "form-control" } })
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>@Html.ValidationMessageFor(model => model.email, "", new { @class = "text-danger" })</td>
+                        </tr>
+                        <tr>
+                            <td>@Html.LabelFor(model => model.password_usuario, htmlAttributes: new { @class = "control-label col-md-2" })</td>
+                            <td>@Html.EditorFor(model => model.password_usuario, new { htmlAttributes = new { @class = "form-control" } })</td>
+                        </tr>
+                        <tr>
+                            <td>@Html.ValidationMessageFor(model => model.password_usuario, "", new { @class = "text-danger" })</td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <input type="submit" name="name" class="btn btn-success" value="Logear" />
+                                <label class="label-success">@ViewBag.DuplicateMessage</label>
+                            </td>
+                        </tr>
 
-            </table>
+                    </table>
+                </div>
+            </div>
+        </div>
+    }
 
-        }
-    </div>
-    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
-    <script src="~/Scripts/jquery.validate.min.js"></script>
-    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
 </body>
 </html>

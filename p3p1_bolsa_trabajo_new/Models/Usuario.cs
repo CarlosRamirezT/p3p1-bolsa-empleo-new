@@ -17,6 +17,7 @@ namespace p3p1_bolsa_trabajo_new.Models
         public int id_usuarios { get; set; }
         public string email { get; set; }
         public string password_usuario { get; set; }
+        public string confirm_password { get; set; }
         public string rol { get; set; }
     }
 }

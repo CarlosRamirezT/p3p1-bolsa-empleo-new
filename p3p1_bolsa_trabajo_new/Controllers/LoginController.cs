@@ -31,5 +31,30 @@ namespace p3p1_bolsa_trabajo_new.Controllers
                 }
             }
         }
+
+        [HttpGet]
+        public ActionResult Signup(int id = 0)
+        {
+            Usuario usuarioModel = new Usuario();
+            return View(usuarioModel);
+        }
+        [HttpPost]
+        public ActionResult Signup(Usuario usuarioModel)
+        {
+            using (p3p1BolsaTrabajoEntities1 dbmodel = new p3p1BolsaTrabajoEntities1())
+            {
+                if (dbmodel.Usuarios.Any(x => x.email == usuarioModel.email))
+                {
+                    ViewBag.DuplicateMessage = "El email ingresado esta en uso";
+                    return View("Signup", usuarioModel);
+                }
+                dbmodel.Usuarios.Add(usuarioModel);
+                dbmodel.SaveChanges();
+            }
+            ModelState.Clear();
+            ViewBag.SuccesMessage = "Registro Exitoso";
+            return View("Login", new Usuario());
+        }
+
     }
 }

@@ -84,6 +84,17 @@ namespace p3p1_bolsa_trabajo_new.Controllers
             return View("ViewAll", ofertas_categorias);
         }
 
+        public ActionResult ViewAllUser(int? category_id, int? page)
+        {
+            IOrderedQueryable<Oferta> ofertas = from o in db.Ofertas where o.id_categoria_ofertas == category_id orderby o.fecha_posteo descending select o;
+            IOrderedQueryable<categoriaOfertaEmpleo> categorias = from c in db.categoriaOfertaEmpleos where c.id_categoria_ofertas == category_id orderby c.id_categoria_ofertas select c;
+            dynamic ofertas_categorias = new ExpandoObject();
+            int rows2display = 2;
+            ofertas_categorias.Ofertas = ofertas.ToPagedList(page ?? 1, rows2display);
+            ofertas_categorias.Categorias = categorias;
+            return View("ViewAllUser", ofertas_categorias);
+        }
+
         // GET: Ofertas/Create
         public ActionResult Create()
         {
@@ -136,7 +147,7 @@ namespace p3p1_bolsa_trabajo_new.Controllers
             {
                 db.Entry(oferta).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("IndexAdmin");
             }
             ViewBag.id_categoria_ofertas = new SelectList(db.categoriaOfertaEmpleos, "id_categoria_ofertas", "titulo", oferta.id_categoria_ofertas);
             return View(oferta);
@@ -165,7 +176,7 @@ namespace p3p1_bolsa_trabajo_new.Controllers
             Oferta oferta = db.Ofertas.Find(id);
             db.Ofertas.Remove(oferta);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("IndexAdmin");
         }
 
         protected override void Dispose(bool disposing)
